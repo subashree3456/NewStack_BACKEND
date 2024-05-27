@@ -45,7 +45,7 @@ router.get("/", (req, res) => {
 // using async and await
 router.post("/signup", async (req, res) => {
   const { name, email, username, password } = req.body;
-
+console.log(req.body);
   if (!name || !email || !username || !password) {
     return res.status(422).json({ error: "Please Fill the properties" });
   }
