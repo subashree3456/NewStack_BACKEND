@@ -126,7 +126,7 @@ const corsOptions = {
   origin: "*", // Update this to your frontend URL
   optionsSuccessStatus: 200,
 };
-app.use(cors(corsOptions));
+app.use(cors());
 
 // Init Middleware
 app.use(express.json({ extended: false }));
