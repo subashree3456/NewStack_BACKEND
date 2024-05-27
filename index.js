@@ -6,15 +6,35 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 //Connection:mongodb
-const connect = async () => {
+// const connect = async () => {
+//   try {
+//     await mongoose.connect(process.env.MONGO);
+//     console.log("connected to Backend Data Base");
+//   } catch (error) {
+//     throw error;
+//   }
+// };
+// connect();
+
+const databaseConnection = async() => {
+ 
   try {
-    await mongoose.connect(process.env.MONGO);
-    console.log("connected to Backend Data Base");
-  } catch (error) {
-    throw error;
-  }
-};
-connect();
+    const connection = await mongoose.connect("mongodb+srv://subashree3003:xMxYOhLk00jLv3hK@cluster0.dsbpgjo.mongodb.net/StackProjectretryWrites=true&w=majority&appName=Cluster0")
+    console.log("Connected to the mongoDB");
+   
+
+} catch (error) {
+    console.log(error);
+}
+ 
+}
+
+databaseConnection();
+
+// mongodb+srv://admin:X3l66mbVjfnAW1Nb@cluster0.omkc6tc.mongodb.net/Book-StoreretryWrites=true&w=majority
+// mongodb+srv://subashree3003:xMxYOhLk00jLv3hK@cluster0.dsbpgjo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+
 const app = express();
 const router = express.Router();
 app.use("/.netlify/functions/api", router);
@@ -22,8 +42,8 @@ app.use("/.netlify/functions/api", router);
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 // cors
-app.use(cors({ origin: true, credentials: true }));
-
+//  app.use(cors({ origin: true, credentials: true }));
+app.use(cors());
 // Connect Database
 
 // Init Middleware
