@@ -114,6 +114,7 @@ const databaseConnection = async() => {
 databaseConnection();
 
 const app = express();
+app.use(cors());
 const router = express.Router();
 app.use("/.netlify/functions/api", router);
 
@@ -122,11 +123,10 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
 // CORS
-const corsOptions = {
-  origin: "*", // Update this to your frontend URL
-  optionsSuccessStatus: 200,
-};
-app.use(cors());
+
+
+
+
 
 // Init Middleware
 app.use(express.json({ extended: false }));
