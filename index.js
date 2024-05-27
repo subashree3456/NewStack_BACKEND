@@ -117,9 +117,11 @@ const app = express();
 const corsOptions = {
   origin: '*',  // Allow all origins
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  // Allow these HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization'],  // Allow these headers
-  maxAge: 86400 , // Cache preflight response for 1 day (86400 seconds),
-  "preflightContinue": false,
+  allowedHeaders: ['Content-Type', 'Authorization', 'Access-Control-Allow-Origin'],  // Allow these headers
+  exposedHeaders: ['Access-Control-Allow-Origin'],
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+  maxAge: 86400  // Cache preflight response for 1 day (86400 seconds)
 };
 app.use(cors(corsOptions));
 const router = express.Router();
