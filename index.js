@@ -44,9 +44,9 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 // cors
 //  app.use(cors({ origin: true, credentials: true }));
 const corsOptions = {
-  origin: "https://new-stack-frontenddd.vercel.app", // Update this to your frontend URL
+  origin: "*", // Update this to your frontend URL
   optionsSuccessStatus: 200,
-  credentials: true,
+ 
 };
 
 app.use(cors(corsOptions));
