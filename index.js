@@ -94,7 +94,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 dotenv.config();
-var cors = require("cors");
+// var cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
@@ -114,16 +114,8 @@ const databaseConnection = async() => {
 databaseConnection();
 
 const app = express();
-const corsOptions = {
-  origin: 'https://new-stack-frontenddd.vercel.app',  // Allow all origins
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  // Allow these HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization', 'Access-Control-Allow-Origin'],  // Allow these headers
-  exposedHeaders: ['Access-Control-Allow-Origin'],
-  
-  optionsSuccessStatus: 204,
-  
-};
-app.use(cors(corsOptions));
+
+// app.use(cors(corsOptions));
 const router = express.Router();
 app.use("/.netlify/functions/api", router);
 
