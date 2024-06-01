@@ -6,7 +6,7 @@ const Question = require('../../model/questionSchema');
 const QuestionDetail = require('../../controllers/QuestionPublic/QuestionDetail');
 const QuestionPublic = require('../../controllers/QuestionPublic/QuestionPublic');
 const corsOptions = {
-   origin: "http://localhost:3000"
+   origin: "https://new-stack-frontenddd.vercel.app"
   };
   router.use(cors(corsOptions));
 router.get('/publicquestionsget', QuestionPublic.getPublicQuestion);
